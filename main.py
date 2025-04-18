@@ -5,7 +5,6 @@ import os
 
 app = Flask(__name__)
 
-# Lấy token từ biến môi trường
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN")
 
@@ -31,11 +30,9 @@ def slack_events():
     data = request.get_json()
     print("Received data:", data)
 
-    # Slack yêu cầu xác minh URL
     if data.get("type") == "url_verification":
         return jsonify({"challenge": data["challenge"]})
 
-    # Khi bot được mention
     if "event" in data:
         event = data["event"]
         if event.get("type") == "app_mention":
