@@ -1,6 +1,6 @@
 services:
 type: web
-    name: slack-gpt-bot
+    name: slack-bot
     env: python
     buildCommand: ""
     startCommand: "gunicorn main:app"
