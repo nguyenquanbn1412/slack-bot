@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 import openai
+import os
 app = Flask(__name__)
 # Thay bằng token thật của bạn
 # Set API key OpenAI từ biến môi trường
